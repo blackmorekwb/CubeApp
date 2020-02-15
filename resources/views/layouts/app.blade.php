@@ -8,6 +8,12 @@
     <title>{{config('app.name', 'Cube')}}</title>
 </head>
 <body>
-    @yield('content')
+
+    @include('partials.navbar')
+
+    <div class="container">
+        @yield('content')
+    </div>
+    
 </body>
 </html>
