@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Algorithm;
 
 class AlgorithmsController extends Controller
 {
@@ -13,28 +14,8 @@ class AlgorithmsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $algorithms = Algorithm::all();
+        return view('algorithms.index')->with('algorithms', $algorithms);
     }
 
     /**
@@ -45,7 +26,40 @@ class AlgorithmsController extends Controller
      */
     public function show($id)
     {
-        //
+        $algorithm = Algorithm::find($id);
+        return view('algorithms.show')->with('algorithm', $algorithm);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('algorithms.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'algorithm' => 'required',
+            'description' => 'required'
+        ]);
+        $algorithm = new Algorithm;
+        $algorithm->name = $request->input('name');
+        $algorithm->algorithm = $request->input('algorithm');
+        $algorithm->description = $request->input('description');
+        $algorithm->save();
+
+        return redirect('/algorithms')->with('success', 'New algorithm created');
     }
 
     /**
@@ -56,7 +70,8 @@ class AlgorithmsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $algorithm = Algorithm::find($id);
+        return view('algorithms.edit')->with('algorithm', $algorithm);
     }
 
     /**
@@ -68,7 +83,18 @@ class AlgorithmsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'algorithm' => 'required',
+            'description' => 'required'
+        ]);
+        $algorithm = Algorithm::find($id);
+        $algorithm->name = $request->input('name');
+        $algorithm->algorithm = $request->input('algorithm');
+        $algorithm->description = $request->input('description');
+        $algorithm->save();
+
+        return redirect('/algorithms/'.$algorithm->id)->with('success', 'Algorithm Updated');
     }
 
     /**
@@ -79,6 +105,9 @@ class AlgorithmsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $algorithm = Algorithm::find($id);
+        $algorithm->delete();
+
+        return redirect('/algorithms')->with('success', 'Algorithm Removed');
     }
 }
