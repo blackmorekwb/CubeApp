@@ -15,12 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+use App\Mail\FeedbackMail;
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/feedback', function () {
+    Mail::to('S1368557@student.mcckc.edu')->send(new FeedbackMail());
+    return new FeedbackMail();
+});
 
 Route::get('/', 'PagesController@index');
-
 Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
 
 Route::resource('algorithms', 'AlgorithmsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+

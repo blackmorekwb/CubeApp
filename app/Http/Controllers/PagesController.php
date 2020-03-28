@@ -19,4 +19,14 @@ class PagesController extends Controller
         );
         return view('pages.about')->with($data);
     }
+
+    public function contact(){
+        $data = array(
+            'title' => 'Contact',
+            'email' => 'S1368557@student.mcckc.edu',
+            'discord' => 'https://discord.gg/9vGmHak'
+        );
+        
+        return view('pages.contact')->with($data);
+    }
 }

@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'S1368557@student.mcckc.edu'),
+        'name' => env('MAIL_FROM_NAME', 'CubeApp'),
     ],
 
     /*
