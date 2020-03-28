@@ -57,6 +57,7 @@ class AlgorithmsController extends Controller
         $algorithm->name = $request->input('name');
         $algorithm->algorithm = $request->input('algorithm');
         $algorithm->description = $request->input('description');
+        $algorithm->user_id = auth()->user()->id;
         $algorithm->save();
 
         return redirect('/algorithms')->with('success', 'New algorithm created');
