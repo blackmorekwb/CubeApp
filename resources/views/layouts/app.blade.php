@@ -26,19 +26,21 @@
     <div id="app">
         @include('partials.navbar')
 
-        <button id="btn-click" class="btn landing-btn">Click Me</button>
+        @if(Route::current()->getName() == 'landingPage')
+            <button id="btn-click" class="btn landing-btn">Click Me</button>
 
-        <svg viewBox="0 0 215.46 107.78">
-            <polygon class="polymorph" points="216.46,107.78 0,107.78 0,0 21.45,0 216.46,0 "/>
-        </svg>
+            <svg viewBox="0 0 215.46 107.78">
+                <polygon class="polymorph" points="216.46,107.78 0,107.78 0,0 21.45,0 216.46,0 "/>
+            </svg>
 
-        <div class="blip">
-            <h1>Welcome to our community!</h1>
-            <p>Why hello there!!</p>
+            <div class="blip">
+                <h1>Welcome to our community!</h1>
+                <p>Why hello there!!</p>
 
-            <button id="btn-click2" class="btn btn-primary landing-btn">Go Back</button>
-        </div>
-
+                <button id="btn-click2" class="btn btn-primary landing-btn">Go Back</button>
+            </div>
+        @endif
+        
         <main class="container py-4">
             @include('partials.messages')
             @yield('content')

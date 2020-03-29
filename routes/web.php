@@ -23,7 +23,7 @@ Route::get('/feedback', function () {
     return new FeedbackMail();
 });
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->name('landingPage');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
