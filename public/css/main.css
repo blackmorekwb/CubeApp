@@ -1,0 +1,37 @@
+.polymorph{
+    fill:#29ABE2;
+}
+
+.landing-btn{
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: 10em auto 0 auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    width: 25%;
+    background: none;
+    color: #fff;
+    outline: 0;
+    outline-style: none;
+    outline-width: 0;
+}
+ 
+#btn-click2 {
+    background: #29ABE2;
+}
+
+.blip {
+    position: absolute;
+    color: #29ABE2;
+    right: 32%;
+    top: 10%;
+    opacity: 0;
+    width: 30%;
+    transform: translateY(-800px);
+}
+
+.blip p {
+    font-size: 1.2em;
+}
