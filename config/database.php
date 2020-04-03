@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 
-globals for postgres connection
+// globals for postgres connection
 $url = parse_url(getenv("DATABASE_URL"));
 
 $host = $url["host"];
