@@ -51,11 +51,16 @@ class AlgorithmsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'algorithm' => 'required',
-            'description' => 'required'
+            'group' => 'required',
+            'group_status' => 'required',
+            'description' => 'required',
+
         ]);
         $algorithm = new Algorithm;
-        $algorithm->name = $request->input('name');
         $algorithm->algorithm = $request->input('algorithm');
+        $algorithm->name = $request->input('name');
+        $algorithm->group = $request->input('group');
+        $algorithm->group_status = $request->input('group_status');
         $algorithm->description = $request->input('description');
         $algorithm->user_id = auth()->user()->id;
         $algorithm->save();
@@ -87,11 +92,15 @@ class AlgorithmsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'algorithm' => 'required',
+            'group' => 'required',
+            'group_status' => 'required',
             'description' => 'required'
         ]);
         $algorithm = Algorithm::find($id);
         $algorithm->name = $request->input('name');
         $algorithm->algorithm = $request->input('algorithm');
+        $algorithm->group = $request->input('group');
+        $algorithm->group_status = $request->input('group_status');
         $algorithm->description = $request->input('description');
         $algorithm->save();
 

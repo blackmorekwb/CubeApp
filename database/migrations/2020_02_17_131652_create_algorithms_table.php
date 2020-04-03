@@ -17,6 +17,8 @@ class CreateAlgorithmsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('algorithm');
+            $table->string('group');
+            $table->string('group_status');
             $table->string('description');
             $table->timestamps();
         });

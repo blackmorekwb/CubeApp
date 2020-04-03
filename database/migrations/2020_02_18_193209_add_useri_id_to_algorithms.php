@@ -14,7 +14,7 @@ class AddUseriIdToAlgorithms extends Migration
     public function up()
     {
         Schema::table('algorithms', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned()->nullable();
         });
     }
 

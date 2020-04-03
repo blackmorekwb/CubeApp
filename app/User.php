@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Users have many algorithms
+    public function algorithms(){
+        return $this->hasMany(Algorithm::class);
+    }
 }
