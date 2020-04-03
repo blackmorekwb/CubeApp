@@ -3,13 +3,13 @@
 use Illuminate\Support\Str;
 
 
-// globals for postgres connection
-// $url = parse_url(getenv("DATABASE_URL"));
+globals for postgres connection
+$url = parse_url(getenv("DATABASE_URL"));
 
-// $host = $url["host"];
-// $username = $url["user"];
-// $password = $url["pass"];
-// $database = substr($url["path"], 1);
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 
 return [
 
@@ -73,7 +73,7 @@ return [
             ]) : [],
         ],
 
-        /* 'pgsql' => [
+        'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => $host,
@@ -86,7 +86,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ], */
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
