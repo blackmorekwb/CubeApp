@@ -40,3 +40,22 @@
     margin-left: 1%;
     margin-right: 1%;
 }
+
+.card-body a{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.card-body img {
+    margin-left: 5%;
+}
+
+.algorithm-card{
+    margin-bottom: 1.5%;
+}
+
+.algorithm-card-wrapper {
+    margin-left: 5%;
+    margin-top: 1.5%;
+}

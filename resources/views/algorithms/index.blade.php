@@ -4,10 +4,12 @@
     <h2>Algorithms</h2>
     @if(count($algorithms) > 0)
         @foreach($algorithms as $alg)
-            <div class="card">
-            <h3><a href="/algorithms/{{$alg->id}}">{{$alg->name}}</a></h3>
-                <div class="algorithm">{{$alg->algorithm}}</div>
-                <div class="description"><p>{{$alg->description}}</p></div>
+            <div class="card algorithm-card {{$alg->id}}">
+                <div class="algorithm-card-wrapper">
+                    <h3><a href="/algorithms/{{$alg->id}}">{{$alg->name}}</a></h3>
+                        <div class="algorithm">{{$alg->algorithm}}</div>
+                        <div class="description"><p>{{$alg->description}}</p></div>
+                </div>
             </div>
         @endforeach
     @else 
